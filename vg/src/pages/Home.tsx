@@ -1,4 +1,4 @@
-import{ useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 // IMPORT NG BACKGROUND 
 import heroBg from '../assets/nav-bg.jpg'; 
@@ -23,14 +23,14 @@ const Home = () => {
   const heroData = [
     {
       id: 1,
-      type: 'image', // Unang slide: Picture ni Vice Gov
+      type: 'image', 
       title: "SERVICEYO CARAVAN PROGRAM FOR LAGUNA 2026",
       desc: "We continue our efforts on the ground and take action to ensure that every Lagunense receives fast, reliable, and high-quality service. Here are some of our key initiatives for the entire province",
       image: caravanImg 
     },
     {
       id: 2,
-      type: 'logos', // Pangalawang slide: Logos
+      type: 'logos', 
       title: "PARTNERSHIP FOR SERVICEYO CARAVAN 2026",
       desc: "United with our fellow public servants, we remain committed to our continued service to the people of Laguna."
     }
@@ -38,21 +38,16 @@ const Home = () => {
 
   const nextHeroSlide = () => setHeroSlide((prev) => (prev === heroData.length - 1 ? 0 : prev + 1));
   
-  // AUTO-PLAY LOGIC
   useEffect(() => {
     const slideInterval = setInterval(() => {
       nextHeroSlide();
     }, 5000);
-
     return () => clearInterval(slideInterval);
   }, [heroSlide]);
 
   return (
     <div className="home-container">
 
-      {/* =======================================
-          HERO CAROUSEL
-          ======================================= */}
       <section 
         className="hero-section"
         style={{
@@ -64,31 +59,25 @@ const Home = () => {
       >
         <div className="hero-carousel-wrapper">
           <div className="hero-slider-container">
+            {/* PINAKASIMPLENG LOGIC: 100% per slide na lang */}
             <ul 
               className="hero-slider-track"
-              style={{ transform: `translateX(calc(-${heroSlide * 100}vw - ${heroSlide * 4}vw))` }}
+              style={{ transform: `translateX(-${heroSlide * 100}%)` }}
             >
               {heroData.map((slide) => (
                 <li className="hero-slide-item" key={slide.id}>
                   <div className="ovp-content">
                     
-                    {/* LEFT COLUMN: TEXT */}
                     <div className="ovp-text-col">
                       <h1 className="ovp-title">{slide.title}</h1>
                       <p className="ovp-desc">{slide.desc}</p>
                     </div>
 
-                    {/* RIGHT COLUMN: LOGIC KUNG PICTURE O LOGOS */}
                     {slide.type === 'image' ? (
-                      
-                      // KUNG TYPE AY 'IMAGE' (UNANG SLIDE - CARAVAN PIC)
                       <div className="ovp-image-col">
                         <img src={slide.image} alt={slide.title} className="ovp-hero-img" />
                       </div>
-
                     ) : (
-
-                      // KUNG HINDI (PANGALAWANG SLIDE - LOGOS CARD)
                       <div className="ovp-logos-card">
                         <h3 className="logos-title">OUR PARTNERS & SUPPORTERS</h3>
                         <div className="logos-grid">
@@ -98,13 +87,10 @@ const Home = () => {
                           <img src={logoBanko} alt="Banko" className="partner-logo" />
                           <img src={logoCalamba} alt="Calamba Eye Center" className="partner-logo" />
                           <img src={logoGob} alt="Gobyernong May Solusyon" className="partner-logo" />
-                          
-                          {/* IDINAGDAG ANG SSS AT PAG-IBIG DITO */}
                           <img src={logoSss} alt="SSS" className="partner-logo" />
                           <img src={logoPagibig} alt="Pag-IBIG Fund" className="partner-logo" />
                         </div>
                       </div>
-
                     )}
 
                   </div>
@@ -114,7 +100,6 @@ const Home = () => {
           </div>
         </div>
         
-        {/* Carousel Markers */}
         <div className="carousel-markers" style={{ marginTop: '2rem' }}>
           {heroData.map((_, index) => (
             <div 
@@ -126,9 +111,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* =======================================
-          VISION & MISSION
-          ======================================= */}
+      {/* VISION & MISSION */}
       <section className="vision-mission-section">
         <div className="vm-container">
           <div className="vm-box">
@@ -142,9 +125,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* =======================================
-          CORE VALUES
-          ======================================= */}
+      {/* CORE VALUES */}
       <section className="core-values-section">
         <div className="cv-container">
           <h2>Core Values</h2>

@@ -1,23 +1,24 @@
 /* =======================================
-   src/App.css (KUMPLETO AT WALANG KULANG)
+   src/App.css (UNIVERSAL RESPONSIVE FIX)
    ======================================= */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-body { 
+body, html { 
   font-family: 'Montserrat', sans-serif; 
   line-height: 1.6; 
   color: #333; 
   background-color: #f9f9f9; 
-  overflow-x: hidden;
+  overflow-x: hidden; 
+  width: 100%;
 }
 
 h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
 strong, b { font-family: 'Montserrat', sans-serif; font-weight: 900; }
 
 .portfolio-app { display: flex; flex-direction: column; min-height: 100vh; width: 100%; }
-.content-container { flex: 1; width: 100%; }
+.content-container { flex: 1; width: 100%; overflow-x: hidden; }
 
 /* =======================================
    NAVBAR STYLES
@@ -41,16 +42,7 @@ strong, b { font-family: 'Montserrat', sans-serif; font-weight: 900; }
 .nav-subtitle { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 1px; color: white; margin-bottom: 4px; }
 .nav-brand { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 800; border-top: 1px solid white; padding-top: 4px; }
 .nav-links { list-style: none; display: flex; gap: 1.5rem; flex-wrap: wrap; }
-
-.nav-links a { 
-  font-family: 'Montserrat', sans-serif; 
-  color: white; 
-  text-decoration: none; 
-  font-weight: 600; 
-  font-size: 0.9rem; 
-  text-transform: uppercase; 
-  position: relative; 
-}
+.nav-links a { font-family: 'Montserrat', sans-serif; color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; position: relative; }
 .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: white; transition: width 0.3s ease; }
 .nav-links a:hover::after { width: 100%; }
 .nav-links a:hover { color: white; }
@@ -63,51 +55,30 @@ strong, b { font-family: 'Montserrat', sans-serif; font-weight: 900; }
 .marker-dot { width: 15px; height: 15px; border: 2px solid white; border-radius: 50%; background-color: transparent; cursor: pointer; transition: 0.3s; }
 .marker-dot.active { background-color: white; }
 
-.hero-section { padding: 4rem 0; display: flex; flex-direction: column; align-items: center; overflow: hidden; }
-.hero-carousel-wrapper { position: relative; width: 100%; }
-.hero-slider-container { width: 100vw; overflow: hidden; }
-ul.hero-slider-track { width: 100vw; display: flex; gap: 4vw; margin: 0; padding: 0; list-style: none; transition: transform 0.5s ease-in-out; }
-li.hero-slide-item { flex: 0 0 100vw; display: flex; justify-content: center; align-items: center; }
+.hero-section { padding: 4rem 0; width: 100%; overflow: hidden; display: flex; flex-direction: column; align-items: center; }
+.hero-carousel-wrapper { width: 100%; position: relative; }
+.hero-slider-container { width: 100%; overflow: hidden; }
+
+ul.hero-slider-track { display: flex; width: 100%; margin: 0; padding: 0; list-style: none; transition: transform 0.5s ease-in-out; }
+
+/* ITO ANG NAGPAAYOS SA PC AT MOBILE - EXACTLY 100% WIDTH PER SLIDE */
+li.hero-slide-item { flex: 0 0 100%; width: 100%; display: flex; justify-content: center; align-items: center; padding: 0; }
 
 .ovp-content { display: flex; flex-wrap: wrap; width: 100%; max-width: 1200px; margin: 0 auto; gap: 3rem; padding: 0 2rem; align-items: center; }
-.ovp-text-col { flex: 1; min-width: 300px; color: white; }
+.ovp-text-col { flex: 1; min-width: 250px; color: white; }
 .ovp-title { font-family: 'Montserrat', sans-serif; font-size: 2.8rem; font-weight: 900; line-height: 1.1; margin-bottom: 1rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.4); text-transform: uppercase;}
 .ovp-desc { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.6; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
 .ovp-read-btn { background-color: #0b4b6b; color: white; border: 1px solid white; padding: 12px 30px; font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 1rem; cursor: pointer; transition: 0.3s; border-radius: 4px; }
 .ovp-read-btn:hover { background-color: white; color: #0b4b6b; }
 
-/* CSS PARA SA UNANG SLIDE (PICTURE NI VICE GOV) */
-.ovp-image-col { 
-  flex: 1; 
-  min-width: 350px; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.ovp-hero-img {
-  width: 100%;
-  max-width: 550px; 
-  height: auto;
-  border-radius: 20px; 
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
-  object-fit: cover;
-}
+.ovp-image-col { flex: 1; min-width: 250px; display: flex; justify-content: center; align-items: center; }
+.ovp-hero-img { width: 100%; max-width: 550px; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); object-fit: cover; }
 
-/* CSS PARA SA PANGALAWANG SLIDE (LOGOS BOX) */
-.ovp-logos-card { 
-  flex: 1; 
-  min-width: 350px; 
-  background: white; 
-  border-radius: 20px; 
-  padding: 2.5rem 1.5rem; 
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+.ovp-logos-card { flex: 1; min-width: 250px; background: white; border-radius: 20px; padding: 2.5rem 1.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.4); display: flex; flex-direction: column; justify-content: center; }
 .logos-title { text-align: center; font-size: 1.3rem; color: #1a365d; margin-bottom: 2rem; font-weight: 900; letter-spacing: 1px; }
-.logos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: center; justify-items: center; }
-.partner-logo { width: 100%; max-width: 85px; height: auto; object-fit: contain; transition: transform 0.3s ease; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.1)); }
+
+.logos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; align-items: center; justify-items: center; }
+.partner-logo { width: 100%; max-width: 75px; height: auto; object-fit: contain; transition: transform 0.3s ease; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.1)); }
 .partner-logo:hover { transform: scale(1.1); }
 
 /* =======================================
@@ -124,20 +95,7 @@ li.hero-slide-item { flex: 0 0 100vw; display: flex; justify-content: center; al
 .cv-container h2 { font-size: 2.8rem; margin-bottom: 3rem; color: white; font-weight: 900; text-align: center; text-transform: uppercase; }
 .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
 
-.value-card { 
-  background: white; 
-  color: #333; 
-  padding: 2.5rem 1.5rem; 
-  border-radius: 8px; 
-  text-align: center; 
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15); 
-  min-height: 350px; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: flex-start; /* NAKASIGURADONG PANTAY ITO PABABA */
-}
-
+.value-card { background: white; color: #333; padding: 2.5rem 1.5rem; border-radius: 8px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.15); min-height: 350px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
 .value-card h3 { color: #0f3863; font-size: 1.8rem; margin-bottom: 0.5rem; font-weight: 900; text-transform: uppercase; }
 .icon-placeholder { font-size: 3.5rem; margin-bottom: 1rem; margin-top: 0.5rem; }
 .value-card p { font-size: 1rem; line-height: 1.6; font-style: italic; color: #4a4a4a; }
@@ -145,72 +103,16 @@ li.hero-slide-item { flex: 0 0 100vw; display: flex; justify-content: center; al
 /* =======================================
    BIOGRAPHY SECTION 
    ======================================= */
-.bio-section {
-  padding: 5rem 2rem;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-}
-.bio-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5rem;
-  max-width: 900px;
-  width: 100%;
-}
-.bio-image-col {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-.bio-img {
-  width: 100%;
-  max-width: 450px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  object-fit: cover;
-}
-.bio-text-col {
-  width: 100%;
-  text-align: left; 
-}
-.bio-text-col h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.8rem;
-  color: #0f3863;
-  margin-bottom: 1.2rem;
-  font-weight: 900;
-  line-height: 1.2;
-}
-.bio-text-col p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.15rem;
-  color: #4a4a4a;
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
-}
-.bio-text-col h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
-  color: #e65100;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-weight: 900;
-}
-.bio-text-col ul {
-  font-family: 'Montserrat', sans-serif;
-  list-style-type: disc;
-  color: #4a4a4a;
-  display: block; 
-  text-align: left; 
-  margin-left: 2rem;
-}
-.bio-text-col li {
-  margin-bottom: 0.8rem;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
+.bio-section { padding: 5rem 2rem; background-color: #ffffff; display: flex; justify-content: center; }
+.bio-container { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; max-width: 900px; width: 100%; }
+.bio-image-col { display: flex; justify-content: center; width: 100%; }
+.bio-img { width: 100%; max-width: 450px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); object-fit: cover; }
+.bio-text-col { width: 100%; text-align: left; }
+.bio-text-col h1 { font-family: 'Montserrat', sans-serif; font-size: 2.8rem; color: #0f3863; margin-bottom: 1.2rem; font-weight: 900; line-height: 1.2; }
+.bio-text-col p { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; color: #4a4a4a; margin-bottom: 1.5rem; line-height: 1.8; }
+.bio-text-col h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: #e65100; margin-top: 2rem; margin-bottom: 1rem; font-weight: 900; }
+.bio-text-col ul { font-family: 'Montserrat', sans-serif; list-style-type: disc; color: #4a4a4a; display: block; text-align: left; margin-left: 2rem; }
+.bio-text-col li { margin-bottom: 0.8rem; font-size: 1.1rem; line-height: 1.6; }
 
 /* =======================================
    PROGRAMS SECTION
@@ -229,115 +131,24 @@ li.hero-slide-item { flex: 0 0 100vw; display: flex; justify-content: center; al
 /* =======================================
    CONTACT LAYOUT (MAP & FORM)
    ======================================= */
-.contact-page-section { 
-  padding: 5rem 2rem; 
-  background-color: #ffffff; 
-  display: flex; 
-  justify-content: center; 
-}
-
-.contact-container { 
-  display: flex; 
-  flex-wrap: wrap; 
-  gap: 3rem; 
-  max-width: 1300px; 
-  width: 100%; 
-  align-items: flex-start; 
-}
-
-.map-column, .form-column { 
-  flex: 1; 
-  min-width: 400px; 
-  display: flex; 
-  flex-direction: column; 
-}
-
-.section-title { 
-  font-family: 'Montserrat', sans-serif; 
-  font-size: 2rem; 
-  color: #0f3863; 
-  font-weight: 900; 
-  margin-bottom: 1.5rem; 
-  text-transform: uppercase; 
-  text-align: center; 
-}
-
-/* DESIGN PARA SA MAP CONTAINER */
-.map-wrapper { 
-  height: 480px; 
-  width: 100%; 
-  border-radius: 8px; 
-  overflow: hidden; 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-  border: 1px solid #e2e8f0; 
-}
-
-/* DESIGN PARA SA FORM CONTAINER */
-.clean-form-container { 
-  width: 100%; 
-  background: white; 
-  padding: 2.5rem; 
-  border-radius: 8px; 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-  border: 1px solid #e2e8f0; 
-}
-
+.contact-page-section { padding: 5rem 2rem; background-color: #ffffff; display: flex; justify-content: center; }
+.contact-container { display: flex; flex-wrap: wrap; gap: 3rem; max-width: 1300px; width: 100%; align-items: flex-start; }
+.map-column, .form-column { flex: 1; min-width: 300px; display: flex; flex-direction: column; }
+.section-title { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #0f3863; font-weight: 900; margin-bottom: 1.5rem; text-transform: uppercase; text-align: center; }
+.map-wrapper { height: 480px; width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+.clean-form-container { width: 100%; background: white; padding: 2.5rem; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
 .clean-form { display: flex; flex-direction: column; }
 .form-row { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
 .form-group { display: flex; flex-direction: column; width: 100%; }
 .form-group.flex-half { flex: 1; }
 .form-group.flex-small { flex: 0 0 35%; }
 .form-group.flex-large { flex: 1; }
-
-.clean-form label { 
-  font-family: 'Montserrat', sans-serif; 
-  font-weight: 600; 
-  color: #4a4a4a; 
-  margin-bottom: 0.5rem; 
-  font-size: 0.95rem; 
-}
-
-.clean-form input, .clean-form textarea { 
-  padding: 0.8rem; 
-  border: 1px solid #cbd5e1; 
-  border-radius: 4px; 
-  font-family: 'Montserrat', sans-serif; 
-  font-size: 1rem; 
-  color: #333; 
-  outline: none; 
-  background-color: #f8fafc; 
-  transition: border-color 0.2s ease; 
-}
-
-.clean-form input:focus, .clean-form textarea:focus { 
-  border-color: #ff3d00; 
-  background-color: #ffffff; 
-}
-
-.clean-form textarea { 
-  resize: vertical; 
-  min-height: 125px; 
-  margin-bottom: 1.5rem; 
-}
-
-.submit-btn-orange { 
-  background-color: #ff3d00; 
-  color: #ffffff; 
-  border: none; 
-  border-radius: 4px; 
-  padding: 1.2rem; 
-  font-family: 'Montserrat', sans-serif; 
-  font-size: 1.1rem; 
-  font-weight: 900; 
-  text-transform: uppercase; 
-  cursor: pointer; 
-  width: 100%; 
-  transition: background-color 0.3s ease; 
-}
-
-.submit-btn-orange:hover { 
-  background-color: #d13200; 
-}
+.clean-form label { font-family: 'Montserrat', sans-serif; font-weight: 600; color: #4a4a4a; margin-bottom: 0.5rem; font-size: 0.95rem; }
+.clean-form input, .clean-form textarea { padding: 0.8rem; border: 1px solid #cbd5e1; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #333; outline: none; background-color: #f8fafc; transition: border-color 0.2s ease; }
+.clean-form input:focus, .clean-form textarea:focus { border-color: #ff3d00; background-color: #ffffff; }
+.clean-form textarea { resize: vertical; min-height: 125px; margin-bottom: 1.5rem; }
+.submit-btn-orange { background-color: #ff3d00; color: #ffffff; border: none; border-radius: 4px; padding: 1.2rem; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 900; text-transform: uppercase; cursor: pointer; width: 100%; transition: background-color 0.3s ease; }
+.submit-btn-orange:hover { background-color: #d13200; }
 
 /* =======================================
    FOOTER
@@ -353,13 +164,13 @@ li.hero-slide-item { flex: 0 0 100vw; display: flex; justify-content: center; al
 .join-me-logo:hover { transform: scale(1.05); }
 
 /* =======================================
-   RESPONSIVE LAYOUT
+   RESPONSIVE LAYOUT (AYOS PARA SA LAHAT NG DEVICES)
    ======================================= */
 @media (max-width: 992px) {
   .navbar { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 1.5rem 1rem; }
   .nav-links { justify-content: center; width: 100%; }
   .programs-grid { grid-template-columns: repeat(2, 1fr); }
-  .map-column, .form-column { min-width: 100%; } /* Pagsusunod-sunurin ang map at form sa mas maliit na screen */
+  .map-column, .form-column { min-width: 100%; } 
 }
 
 @media (max-width: 768px) {
@@ -369,9 +180,18 @@ li.hero-slide-item { flex: 0 0 100vw; display: flex; justify-content: center; al
   .nav-brand { font-size: 1.1rem; }
   .nav-links { justify-content: center; gap: 1rem; flex-wrap: wrap; width: 100%; }
   .nav-links a { font-size: 0.85rem; }
+  
+  /* FORCE 100% PARA PUMASOK SA MALIIT NA SCREEN */
+  .ovp-text-col, .ovp-image-col, .ovp-logos-card { 
+    min-width: 100% !important; 
+  }
+
+  .ovp-content { flex-direction: column; padding: 0 1.5rem; gap: 1.5rem; }
+  .ovp-logos-card { padding: 1.5rem 1rem; }
+  .logos-title { font-size: 1.1rem; }
+  
   .ovp-title { font-size: 1.8rem; text-align: center; }
   .ovp-desc { text-align: center; }
-  .ovp-content { flex-direction: column; }
   .footer-logos { flex-direction: column; gap: 1rem; }
   .bio-img { max-width: 300px; }
   .bio-text-col h1, .programs-header h1 { font-size: 2.2rem; }
@@ -379,8 +199,13 @@ li.hero-slide-item { flex: 0 0 100vw; display: flex; justify-content: center; al
 
 @media (max-width: 600px) {
   .form-row { flex-direction: column; gap: 1.5rem; }
-  .logos-grid { grid-template-columns: repeat(2, 1fr); }
+  
+  .logos-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .partner-logo { max-width: 65px; }
+
   .form-group.flex-small, .form-group.flex-large { flex: auto; width: 100%; }
   .bio-text-col h1, .programs-header h1 { font-size: 1.8rem; }
   .programs-grid { grid-template-columns: 1fr; }
+  
+  .map-column, .form-column { min-width: 100% !important; }
 }
