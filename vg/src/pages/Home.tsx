@@ -71,6 +71,7 @@ const Home = () => {
                     <div className="ovp-text-col">
                       <h1 className="ovp-title">{slide.title}</h1>
                       <p className="ovp-desc">{slide.desc}</p>
+                      
                     </div>
 
                     {slide.type === 'image' ? (
