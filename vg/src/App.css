@@ -1,5 +1,5 @@
 /* =======================================
-   src/App.css (KUMPLETO AT RESPONSIVE NA)
+   src/App.css (KUMPLETO AT WALANG KULANG)
    ======================================= */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
 
@@ -10,7 +10,7 @@ body {
   line-height: 1.6; 
   color: #333; 
   background-color: #f9f9f9; 
-  overflow-x: hidden; /* Pinipigilan ang pag-scroll pakaliwa't kanan */
+  overflow-x: hidden;
 }
 
 h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
@@ -63,9 +63,9 @@ strong, b { font-family: 'Montserrat', sans-serif; font-weight: 900; }
 .marker-dot { width: 15px; height: 15px; border: 2px solid white; border-radius: 50%; background-color: transparent; cursor: pointer; transition: 0.3s; }
 .marker-dot.active { background-color: white; }
 
-.hero-section { padding: 4rem 0; display: flex; flex-direction: column; align-items: center; overflow: hidden; width: 100%; }
+.hero-section { padding: 4rem 0; display: flex; flex-direction: column; align-items: center; overflow: hidden; }
 .hero-carousel-wrapper { position: relative; width: 100%; }
-.hero-slider-container { width: 100%; overflow: hidden; }
+.hero-slider-container { width: 100vw; overflow: hidden; }
 ul.hero-slider-track { width: 100vw; display: flex; gap: 4vw; margin: 0; padding: 0; list-style: none; transition: transform 0.5s ease-in-out; }
 li.hero-slide-item { flex: 0 0 100vw; display: flex; justify-content: center; align-items: center; }
 
@@ -106,8 +106,8 @@ li.hero-slide-item { flex: 0 0 100vw; display: flex; justify-content: center; al
   justify-content: center;
 }
 .logos-title { text-align: center; font-size: 1.3rem; color: #1a365d; margin-bottom: 2rem; font-weight: 900; letter-spacing: 1px; }
-.logos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; align-items: center; justify-items: center; }
-.partner-logo { width: 100%; max-width: 75px; height: auto; object-fit: contain; transition: transform 0.3s ease; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.1)); }
+.logos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: center; justify-items: center; }
+.partner-logo { width: 100%; max-width: 85px; height: auto; object-fit: contain; transition: transform 0.3s ease; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.1)); }
 .partner-logo:hover { transform: scale(1.1); }
 
 /* =======================================
@@ -353,7 +353,7 @@ li.hero-slide-item { flex: 0 0 100vw; display: flex; justify-content: center; al
 .join-me-logo:hover { transform: scale(1.05); }
 
 /* =======================================
-   RESPONSIVE LAYOUT (AYOS PARA SA PHONE)
+   RESPONSIVE LAYOUT
    ======================================= */
 @media (max-width: 992px) {
   .navbar { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 1.5rem 1rem; }
@@ -369,21 +369,9 @@ li.hero-slide-item { flex: 0 0 100vw; display: flex; justify-content: center; al
   .nav-brand { font-size: 1.1rem; }
   .nav-links { justify-content: center; gap: 1rem; flex-wrap: wrap; width: 100%; }
   .nav-links a { font-size: 0.85rem; }
-
-  /* DITO INAYOS ANG CAROUSEL PARA DI LUMAGPAS SA PHONE */
-  .ovp-content { flex-direction: column; padding: 0 1.5rem; gap: 1.5rem; }
-  .ovp-text-col { min-width: 100%; }
-  .ovp-image-col { min-width: 100%; }
-  
-  .ovp-logos-card { 
-    min-width: 100%; /* Important: pinipigilan itong lumagpas */
-    padding: 1.5rem 1rem; 
-  }
-  .logos-title { font-size: 1.1rem; }
-  
   .ovp-title { font-size: 1.8rem; text-align: center; }
   .ovp-desc { text-align: center; }
-  
+  .ovp-content { flex-direction: column; }
   .footer-logos { flex-direction: column; gap: 1rem; }
   .bio-img { max-width: 300px; }
   .bio-text-col h1, .programs-header h1 { font-size: 2.2rem; }
@@ -391,11 +379,7 @@ li.hero-slide-item { flex: 0 0 100vw; display: flex; justify-content: center; al
 
 @media (max-width: 600px) {
   .form-row { flex-direction: column; gap: 1.5rem; }
-  
-  /* GRID PARA KASYA ANG LOGOS SA PHONE (Naging 2 columns) */
-  .logos-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-  .partner-logo { max-width: 65px; }
-
+  .logos-grid { grid-template-columns: repeat(2, 1fr); }
   .form-group.flex-small, .form-group.flex-large { flex: auto; width: 100%; }
   .bio-text-col h1, .programs-header h1 { font-size: 1.8rem; }
   .programs-grid { grid-template-columns: 1fr; }
