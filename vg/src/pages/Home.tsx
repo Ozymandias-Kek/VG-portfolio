@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import{ useState, useEffect } from 'react';
 
 // IMPORT NG BACKGROUND 
 import heroBg from '../assets/nav-bg.jpg'; 

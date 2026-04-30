@@ -1,4 +1,3 @@
-import React from 'react';
 // Siguraduhing tama ang path at pangalan ng picture mo dito
 import bioImage from '../assets/bio-pic.png'; 
 
