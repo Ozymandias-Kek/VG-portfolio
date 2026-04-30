@@ -63,7 +63,7 @@ function Contact() {
 
         {/* KANANG COLUMN: FORM */}
         <div className="form-column">
-          <h2 className="section-title">CONTACT US</h2>
+          <h2 className="section-title">CONNECT WITH US</h2>
           <div className="clean-form-container">
             <form onSubmit={handleSubmit} className="clean-form">
               

@@ -24,14 +24,14 @@ const Home = () => {
     {
       id: 1,
       type: 'image', // Unang slide: Picture ni Vice Gov
-      title: "CARAVAN PROGRAM FOR LAGUNA 2026",
+      title: "SERVICEYO CARAVAN PROGRAM FOR LAGUNA 2026",
       desc: "We continue our efforts on the ground and take action to ensure that every Lagunense receives fast, reliable, and high-quality service. Here are some of our key initiatives for the entire province",
       image: caravanImg 
     },
     {
       id: 2,
       type: 'logos', // Pangalawang slide: Logos
-      title: "PARTNERSHIP FOR CARAVAN 2026",
+      title: "PARTNERSHIP FOR SERVICEYO CARAVAN 2026",
       desc: "United with our fellow public servants, we remain committed to our continued service to the people of Laguna."
     }
   ];
